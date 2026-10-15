@@ -1,40 +1,76 @@
 {
   "version": "54.0.0",
   "artifacts": {
-    "CursoAwsCdkStack.assets": {
+    "Vpc.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "CursoAwsCdkStack.assets.json",
+        "file": "Vpc.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "CursoAwsCdkStack": {
+    "Vpc": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://unknown-account/unknown-region",
+      "environment": "aws://852138521129/sa-east-1",
       "properties": {
-        "templateFile": "CursoAwsCdkStack.template.json",
+        "templateFile": "Vpc.template.json",
         "terminationProtection": false,
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/21fbb51d7b23f6a6c262b46a9caee79d744a3ac019fd45422d988b96d44b2a22.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-deploy-role-852138521129-sa-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-cfn-exec-role-852138521129-sa-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-852138521129-sa-east-1/1390cc3b1b9a8cb395d2f840f2edf82a527d3168109bc90e93ee279fdcb8eb82.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "CursoAwsCdkStack.assets"
+          "Vpc.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "arn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-lookup-role-852138521129-sa-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
       },
       "dependencies": [
-        "CursoAwsCdkStack.assets"
+        "Vpc.assets"
       ],
-      "additionalMetadataFile": "CursoAwsCdkStack.metadata.json",
-      "displayName": "CursoAwsCdkStack"
+      "additionalMetadataFile": "Vpc.metadata.json",
+      "displayName": "Vpc"
+    },
+    "Cluster.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Cluster.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Cluster": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://852138521129/sa-east-1",
+      "properties": {
+        "templateFile": "Cluster.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-deploy-role-852138521129-sa-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-cfn-exec-role-852138521129-sa-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-852138521129-sa-east-1/a83a56123ad6199e4985ff6b3c15ae2cdef0dd9ee7f79a24583066317fd3f56e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Cluster.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-lookup-role-852138521129-sa-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Vpc",
+        "Cluster.assets"
+      ],
+      "additionalMetadataFile": "Cluster.metadata.json",
+      "displayName": "Cluster"
     },
     "Tree": {
       "type": "cdk:tree",
@@ -500,5 +536,21 @@
       }
     }
   },
+  "missing": [
+    {
+      "key": "availability-zones:account=852138521129:region=sa-east-1",
+      "provider": "availability-zones",
+      "props": {
+        "dummyValue": [
+          "dummy1a",
+          "dummy1b",
+          "dummy1c"
+        ],
+        "account": "852138521129",
+        "region": "sa-east-1",
+        "lookupRoleArn": "arn:${AWS::Partition}:iam::852138521129:role/cdk-hnb659fds-lookup-role-852138521129-sa-east-1"
+      }
+    }
+  ],
   "minimumCliVersion": "2.1139.0"
 }
